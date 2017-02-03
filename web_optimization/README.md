@@ -25,12 +25,38 @@
     * Mobile: 73/100
     * Desktop: 90/100
 
+#### How to run this project?
+
+1. Download and extract this repository.
+2. Find the ```index.html``` file and open that in a web browser to run the project.
+3. By clicking on ```Cam's Pizzaria``` link in the homepage takes you to a simulated online pizzaria application where you can see large collections of pizzas.
+
+### How to calculate Google's PageSpeed Insights score?
+
+1. Check out the repository
+2. To inspect the site on your phone, you can run a local server
+
+  ```bash
+  $> cd /path/to/your-project-folder
+  $> python -m SimpleHTTPServer 8080
+  ```
+
+3. Open a browser and visit localhost:8080
+4. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
+
+  ``` bash
+  $> cd /path/to/your-project-folder
+  $> ./ngrok http 8080
+  ```
+
+4. Copy the public URL ngrok gives you and try running it through [Google Pagespeed Insight](https://developers.google.com/speed/pagespeed/insights/)!
+
+
 ### Extra
 
 1. Adding new layers to the moving pizzas(background) by adding ```will-change:transform``` style property to all the ```<img class='.mover'>``` image elements. Here each pizza element is promoted to its own layer which enhances the animation performance and avoids paint issues.
 2. ```document.getElementById("randomPizzas");``` element is used to append the randomly generated pizzas. This property has been used inside the for loop which creates **Forced Synchronous Layout(FSL)**. So to avoid that this element is moves outside the for loop and assigned to a variable. And in turn this variable is used inside the for loop where the element is read only once and write process stated respectively. This enhances the performance.
-3. During ```DOMContentLoaded``` event moving pizza image elements are created and appended to ```#movingPizzas1``` container. Here the **height** and **width** of the image element removed and added in the styles. By doing this, javascript don't have to set the height and width style property to the image element on each iteration. The height and width property are set in the styles and this improves performance when creating a moving pizza image.
-4. ```document.querySelector("#movingPizzas1");``` element is moved outside the for loop to reduce the **Forced Synchronous Layout(FSL)** as this element is read once and then the write process is started.
+3. ```document.querySelector("#movingPizzas1");``` element is moved outside the for loop to reduce the **Forced Synchronous Layout(FSL)** as this element is read once and then the write process is started.
 
 
 =============================================================================
